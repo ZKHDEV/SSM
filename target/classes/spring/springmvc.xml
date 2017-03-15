@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 注解驱动、校验器 -->
+    <mvc:annotation-driven validator="validator"/>
+
+    <!-- 视图解析器  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 组件扫描 -->
+    <context:component-scan base-package="com.zkh.controller"></context:component-scan>
+
+    <!-- 校验器 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+        <!-- 指定校验使用的资源文件，默认使用classpath:ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+    <!-- 校验错误信息配置文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!-- 资源文件名-->
+        <property name="basenames">
+            <list>
+                <value>classpath:ValidationMessages</value>
+            </list>
+        </property>
+        <!-- 资源文件编码格式 -->
+        <property name="fileEncodings" value="utf-8" />
+        <!-- 对资源文件内容缓存时间，单位秒 -->
+        <property name="cacheSeconds" value="120" />
+    </bean>
+
+    <!-- 全局异常处理器 -->
+    <bean class="com.zkh.exception.CustomExceptionResolver"></bean>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8" />
+        <!-- 文件大小最大值 -->
+        <property name="maxUploadSize" value="10485760000" />
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="40960" />
+    </bean>
+
+    <!-- RESTful下静态资源解析 -->
+    <!-- <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/img/" mapping="/img/**"/> -->
+
+    <!-- 拦截器 -->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:mapping path="/user/**"/>-->
+            <!--<bean class="com.zkh.interceptor.LoginInterceptor"></bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+</beans>

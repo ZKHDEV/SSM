@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--引入数据库配置文件-->
+    <properties resource="jdbc.properties"></properties>
+
+    <settings>
+        <!-- 开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!--配置类型别名-->
+    <typeAliases>
+        <!--引入pojo包-->
+        <package name="com.zkh.pojo"/>
+    </typeAliases>
+
+</configuration>
