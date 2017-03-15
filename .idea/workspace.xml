@@ -1126,15 +1126,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489413864814</updated>
-      <workItem from="1489413867543" duration="38872000" />
+      <workItem from="1489413867543" duration="39469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38872000" />
+    <option name="totallyTimeSpent" value="39469000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1537,8 +1537,8 @@
         <state relative-caret-position="112">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="78" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2394#2400#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#2394#2400#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
