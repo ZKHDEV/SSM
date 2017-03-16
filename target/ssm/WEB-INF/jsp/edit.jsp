@@ -7,6 +7,7 @@
     <hr>
     <div class="row">
         <form id="movie-edit-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/update.action" method="post">
+            <input type="hidden" name="token" value="${sessionScope.token}">
             <input type="hidden" name="id" value="${movie.id}">
             <div class="form-group">
                 <label for="Title" class="col-sm-2 control-label">Title</label>

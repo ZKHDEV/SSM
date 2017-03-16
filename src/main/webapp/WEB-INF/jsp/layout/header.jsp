@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -15,6 +16,15 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <shiro:authenticated>
+                    <li><a href="${pageContext.request.contextPath}/logout.action">Log out</a></li>
+                </shiro:authenticated>
+                <shiro:notAuthenticated>
+                    <li><a href="${pageContext.request.contextPath}/register.action">Register</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login.action">Log in</a></li>
+                </shiro:notAuthenticated>
             </ul>
         </div>
     </div>
