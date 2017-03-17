@@ -43,7 +43,7 @@ public class AccountController extends BaseController {
         usernamePasswordTokentoken.setRememberMe(loginViewModel.getRemember());
         try {
             subject.login(usernamePasswordTokentoken);
-            return "redirect:/list.action";
+            return "redirect:/movie/list.action";
         }catch (Exception e){
             model.addAttribute("user",loginViewModel);
             model.addAttribute("errormsg","用户名或密码错误。");

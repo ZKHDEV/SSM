@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% request.setAttribute("title","登录"); %>
 <%@ include  file="./layout/web-header.jsp"%>
 <%@ include  file="./layout/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">

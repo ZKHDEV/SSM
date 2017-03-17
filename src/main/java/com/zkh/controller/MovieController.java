@@ -25,6 +25,7 @@ import java.util.UUID;
  * Created by ms-zk on 2017-03-13.
  */
 @Controller
+@RequestMapping("/movie")
 public class MovieController extends BaseController {
 
     @Autowired
@@ -53,7 +54,7 @@ public class MovieController extends BaseController {
         }
 
         movieService.insert(movie);
-        return "redirect:/list.action";
+        return "redirect:/movie/list.action";
     }
 
     @RequestMapping("delete")
@@ -66,7 +67,7 @@ public class MovieController extends BaseController {
     @RequestMapping("deleteSubmit")
     public String deleteSubmit(Integer id){
         movieService.deleteByPrimaryKey(id);
-        return "redirect:/list.action";
+        return "redirect:/movie/list.action";
     }
 
     @RequestMapping("details")
@@ -95,6 +96,6 @@ public class MovieController extends BaseController {
         }
 
         movieService.updateByPrimaryKey(movie.getId(),movie);
-        return "redirect:/list.action";
+        return "redirect:/movie/list.action";
     }
 }

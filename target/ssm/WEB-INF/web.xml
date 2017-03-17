@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>ssm</display-name>
 
+    <welcome-file-list>
+        <welcome-file>login.action</welcome-file>
+    </welcome-file-list>
+
     <!-- 前端控制器 -->
     <servlet>
         <servlet-name>springmvc</servlet-name>

@@ -34,10 +34,15 @@
         <property name="filterChainDefinitions">
             <value>
                 <!--anon 表示匿名访问，不需要认证以及授权-->
-
-                <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
-                /*=authc
                 /login.action=anon
+                /css/** = anon
+                /js/** = anon
+                /img/** = anon
+                /font/** = anon
+                /swf/** = anon
+                /upload/** = anon
+                <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
+                /movie/**=authc
                 <!--/student=roles[teacher]-->
                 <!--/teacher=perms["user:create"]-->
             </value>

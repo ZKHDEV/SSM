@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% request.setAttribute("title","电影"); %>
 <%@ include  file="./layout/web-header.jsp"%>
 <%@ include  file="./layout/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>List</h1>
-    <a href="${pageContext.request.contextPath}/create.action">Creat New</a>
+    <a href="${pageContext.request.contextPath}/movie/create.action">Creat New</a>
     <table class="table table-hover">
         <thead>
             <th>Id</th>
@@ -21,7 +22,7 @@
                 <td>${movie.director}</td>
                 <td>${movie.genre}</td>
                 <td>${movie.language}</td>
-                <th><a href="${pageContext.request.contextPath}/details.action?id=${movie.id}">Details</a>|<a href="${pageContext.request.contextPath}/update.action?id=${movie.id}">Edit</a>|<a href="${pageContext.request.contextPath}delete.action?id=${movie.id}">Delete</a></th>
+                <th><a href="${pageContext.request.contextPath}/movie/details.action?id=${movie.id}">Details</a> | <a href="${pageContext.request.contextPath}/movie/update.action?id=${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/delete.action?id=${movie.id}">Delete</a></th>
             </tr>
         </c:forEach>
         </tbody>

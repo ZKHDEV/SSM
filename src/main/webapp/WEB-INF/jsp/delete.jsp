@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% request.setAttribute("title","删除电影"); %>
 <%@ include  file="./layout/web-header.jsp"%>
 <%@ include  file="./layout/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
@@ -18,7 +19,7 @@
         <dt>Language</dt>
         <dd>${movie.language}</dd>
     </dl>
-    <a href="${pageContext.request.contextPath}/deleteSubmit.action?id=${movie.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/list.action">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/deleteSubmit.action?id=${movie.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/movie/list.action">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./layout/javascript.jsp"%>

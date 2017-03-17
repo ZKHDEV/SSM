@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% request.setAttribute("title","添加电影"); %>
 <%@ include  file="./layout/web-header.jsp"%>
 <%@ include  file="./layout/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
@@ -6,7 +7,7 @@
     <h4>Movie</h4>
     <hr>
     <div class="row">
-        <form id="movie-create-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/create.action" method="post">
+        <form id="movie-create-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/movie/create.action" method="post">
             <input type="hidden" name="token" value="${sessionScope.token}">
             <div class="form-group">
                 <label for="Title" class="col-sm-2 control-label">Title</label>
@@ -43,7 +44,7 @@
             </div>
         </form>
     </div>
-    <a href="${pageContext.request.contextPath}/list.action">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/list.action">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./layout/javascript.jsp"%>
