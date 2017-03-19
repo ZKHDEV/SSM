@@ -1,11 +1,12 @@
 package com.zkh.util;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by ms-zk on 2017-03-14.
  */
-public class DataPage<T> {
+public class DataPage<T> implements Serializable {
     private Integer pageNum;    //页码
     private Integer pageCount;  //总页数
     private Integer pageSize;   //每页数据数目

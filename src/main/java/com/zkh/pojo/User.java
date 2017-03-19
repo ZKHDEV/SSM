@@ -2,7 +2,9 @@ package com.zkh.pojo;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Integer id;
     @NotEmpty(message="{user.email.length.error}")
     private String email;

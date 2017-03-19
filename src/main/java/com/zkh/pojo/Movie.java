@@ -5,8 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-public class Movie {
+public class Movie implements Serializable {
     private Integer id;
 
     @NotEmpty(message="{movie.title.length.error}")
