@@ -8,9 +8,10 @@ import java.io.Serializable;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * Redis工具类
+ */
 public class RedisUtil {
-    private Logger logger = Logger.getLogger(RedisUtil.class);
     private RedisTemplate<Serializable, Object> redisTemplate;
 
     /**

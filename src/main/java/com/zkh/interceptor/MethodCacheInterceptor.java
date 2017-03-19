@@ -6,6 +6,9 @@ import org.aopalliance.intercept.MethodInvocation;
 
 import java.util.List;
 
+/**
+ * Redis缓存过滤器
+ */
 public class MethodCacheInterceptor implements MethodInterceptor {
     private RedisUtil redisUtil;
     private List<String> targetNamesList; // 不加入缓存的service名称

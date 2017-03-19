@@ -8,9 +8,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by ms-zk on 2017-03-14.
+ * 控制器工具类
  */
 public class ControllerUtil {
+    /**
+     * 转换错误信息为Map
+     * @param errors 错误信息List
+     * @return
+     */
     public static Map<String,String> ObjectErrorsToMap(List<ObjectError> errors){
         Map<String,String> map = new HashMap<String, String>();
         for(ObjectError error : errors){

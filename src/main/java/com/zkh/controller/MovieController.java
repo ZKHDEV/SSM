@@ -33,6 +33,7 @@ public class MovieController extends BaseController {
 
     @RequestMapping("/list")
     public String list(Model model,Integer p){
+        p = p == null ? 1 : (p < 1 ? 1 : p);
         DataPage<Movie> page = movieService.selectPage(p,10,6);
         model.addAttribute("page",page);
         return "list";

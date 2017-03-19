@@ -47,7 +47,6 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public DataPage<Movie> selectPage(Integer pageNum, Integer pageSize, Integer indexCount) {
-        pageNum = pageNum == null ? 1 : (pageNum < 1 ? 1 : pageNum);
         PageHelper.startPage(pageNum,pageSize);
         List<Movie> movies = movieMapper.selectByExample(null);
 
