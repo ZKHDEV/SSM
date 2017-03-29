@@ -1,18 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% request.setAttribute("title","登录"); %>
-<%@ include  file="./layout/web-header.jsp"%>
-<%@ include  file="./layout/header.jsp"%>
+<%@ include  file="./modules/web-header.jsp"%>
+<%@ include  file="./modules/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>Log in.</h1>
     <h4>Use a local account to log in.</h4>
     <hr>
     <div class="row">
-        <form id="login-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/login.action" method="post">
+        <form id="login-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/login" method="post">
             <input type="hidden" name="token" value="${sessionScope.token}">
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email" value="${user.email}" placeholder="Email">
+                    <input type="text" class="form-control" id="email" name="email" value="${model.email}" placeholder="Email">
                     <span class="text-danger">${errors.email}</span>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="remember" value="${user.remember}"> Remember me?
+                            <input type="checkbox" name="remember" value="${model.remember}"> Remember me?
                         </label>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
     <a href="${pageContext.request.contextPath}/forgot.action">Forgot your password?</a>
     <hr> &copy;2017 - ZKH
 </div>
-<%@ include  file="./layout/javascript.jsp"%>
-<script src="${pageContext.request.contextPath }/js/jquery.md5.js"></script>
+<%@ include  file="./modules/javascript.jsp"%>
+<script src="${pageContext.request.contextPath}/js/jquery.md5.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/form-validate.js"></script>
-<%@ include  file="./layout/web-footer.jsp"%>
+<%@ include  file="./modules/web-footer.jsp"%>

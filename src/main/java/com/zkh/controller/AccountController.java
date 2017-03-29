@@ -25,7 +25,7 @@ public class AccountController extends BaseController {
     @RequestMapping(value = "/login",method = {RequestMethod.GET})
     public String login(HttpSession session){
         session.setAttribute("token", UUID.randomUUID().toString());
-        return "login";
+        return View("login");
     }
 
     @RequestMapping(value = "/login",method = {RequestMethod.POST})
@@ -33,9 +33,8 @@ public class AccountController extends BaseController {
         validateAntiForgeryToken(session,token);
         if(bindingResult.hasErrors()){
             loginViewModel.setPassword("");
-            model.addAttribute("user",loginViewModel);
             model.addAttribute("errors", ControllerUtil.ObjectErrorsToMap(bindingResult.getAllErrors()));
-            return "login";
+            return View("login",model,loginViewModel);
         }
 
         Subject subject = SecurityUtils.getSubject();
@@ -43,11 +42,11 @@ public class AccountController extends BaseController {
         usernamePasswordTokentoken.setRememberMe(loginViewModel.getRemember());
         try {
             subject.login(usernamePasswordTokentoken);
-            return "redirect:/movie/list.action";
+            return RedirectTo("/movie/list");
         }catch (Exception e){
-            model.addAttribute("user",loginViewModel);
             model.addAttribute("errormsg","用户名或密码错误。");
-            return "login";
+            loginViewModel.setPassword("");
+            return View("login",model,loginViewModel);
         }
     }
 
@@ -55,6 +54,6 @@ public class AccountController extends BaseController {
     public String logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "redirect:/login.action";
+        return RedirectTo("/login");
     }
 }

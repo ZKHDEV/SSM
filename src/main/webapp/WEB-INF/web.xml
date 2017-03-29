@@ -5,7 +5,7 @@
     <display-name>ssm</display-name>
 
     <welcome-file-list>
-        <welcome-file>login.action</welcome-file>
+        <welcome-file>/login</welcome-file>
     </welcome-file-list>
 
     <!-- 前端控制器 -->
@@ -19,23 +19,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>*.action</url-pattern>
-    </servlet-mapping>
-
-    <!-- RESTful前端控制器 -->
-    <!-- <servlet>
-        <servlet-name>springmvc_rest</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/springmvc.xml</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>springmvc_rest</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
-
+    </servlet-mapping>
 
     <!-- 监听器 -->
     <context-param>

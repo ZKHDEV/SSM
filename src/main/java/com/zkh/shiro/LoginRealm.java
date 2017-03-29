@@ -12,7 +12,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by ms-zk on 2017-03-15.
+ * 权限校验器
  */
 public class LoginRealm extends AuthorizingRealm {
 

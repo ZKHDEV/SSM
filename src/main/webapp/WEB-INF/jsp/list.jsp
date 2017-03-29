@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% request.setAttribute("title","电影"); %>
-<%@ include  file="./layout/web-header.jsp"%>
-<%@ include  file="./layout/header.jsp"%>
+<%@ include  file="./modules/web-header.jsp"%>
+<%@ include  file="./modules/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>List</h1>
     <a href="${pageContext.request.contextPath}/movie/create.action">Creat New</a>
@@ -15,20 +15,20 @@
             <th></th>
         </thead>
         <tbody>
-        <c:forEach items="${page.data}" var="movie">
+        <c:forEach items="${model.data}" var="movie">
             <tr>
                 <td>${movie.id}</td>
                 <td>${movie.title}</td>
                 <td>${movie.director}</td>
                 <td>${movie.genre}</td>
                 <td>${movie.language}</td>
-                <th><a href="${pageContext.request.contextPath}/movie/details.action?id=${movie.id}">Details</a> | <a href="${pageContext.request.contextPath}/movie/update.action?id=${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/delete.action?id=${movie.id}">Delete</a></th>
+                <th><a href="${pageContext.request.contextPath}/movie/details?id=${movie.id}">Details</a> | <a href="${pageContext.request.contextPath}/movie/update?id=${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/delete?id=${movie.id}">Delete</a></th>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-    <%@ include  file="./layout/page-toolkit.jsp"%>
+    <%@ include  file="./modules/page-toolkit.jsp"%>
     <hr> &copy;2017 - ZKH
 </div>
-<%@ include  file="./layout/javascript.jsp"%>
-<%@ include  file="./layout/web-footer.jsp"%>
+<%@ include  file="./modules/javascript.jsp"%>
+<%@ include  file="./modules/web-footer.jsp"%>

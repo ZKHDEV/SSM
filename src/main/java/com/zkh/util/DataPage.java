@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by ms-zk on 2017-03-14.
+ * 分页包装类
  */
 public class DataPage<T> implements Serializable {
     private Integer pageNum;    //页码

@@ -17,14 +17,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--引入Redis配置文件-->
-    <!-- 将多个配置文件读取到容器中，交给Spring管理 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:redis.properties</value>
-            </list>
-        </property>
-    </bean>
+    <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
 
     <!-- jedis 配置 -->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
@@ -52,7 +45,7 @@
     <!-- cache配置 -->
     <bean id="methodCacheInterceptor" class="com.zkh.interceptor.MethodCacheInterceptor">
         <property name="redisUtil" ref="redisUtil"/>
-        <property name="defaultCacheExpireTime" value="${defaultCacheExpireTime}"/>
+        <property name="defaultCacheExpireTime" value="${redis.cacheExpireTime}"/>
         <property name="targetNamesList">
             <list>
                 <value></value>

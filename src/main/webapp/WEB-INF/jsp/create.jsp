@@ -1,39 +1,39 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% request.setAttribute("title","添加电影"); %>
-<%@ include  file="./layout/web-header.jsp"%>
-<%@ include  file="./layout/header.jsp"%>
+<%@ include  file="./modules/web-header.jsp"%>
+<%@ include  file="./modules/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>Create</h1>
     <h4>Movie</h4>
     <hr>
     <div class="row">
-        <form id="movie-create-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/movie/create.action" method="post">
+        <form id="movie-create-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/movie/create" method="post">
             <input type="hidden" name="token" value="${sessionScope.token}">
             <div class="form-group">
                 <label for="Title" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="title" name="title" value="${movie.title}" placeholder="Title">
+                    <input type="text" class="form-control" id="title" name="title" value="${model.title}" placeholder="Title">
                     <span class="text-danger">${errors.title}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="Director" class="col-sm-2 control-label">Director</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="director" name="director" value="${movie.director}" placeholder="Director">
+                    <input type="text" class="form-control" id="director" name="director" value="${model.director}" placeholder="Director">
                     <span class="text-danger">${errors.director}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="Genre" class="col-sm-2 control-label">Genre</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="genre" name="genre" value="${movie.genre}" placeholder="Genre">
+                    <input type="text" class="form-control" id="genre" name="genre" value="${model.genre}" placeholder="Genre">
                     <span class="text-danger">${errors.genre}</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="Language" class="col-sm-2 control-label">Language</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="language" name="language" value="${movie.language}" placeholder="Language">
+                    <input type="text" class="form-control" id="language" name="language" value="${model.language}" placeholder="Language">
                     <span class="text-danger">${errors.language}</span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
     <a href="${pageContext.request.contextPath}/movie/list.action">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
-<%@ include  file="./layout/javascript.jsp"%>
+<%@ include  file="./modules/javascript.jsp"%>
 <script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/form-validate.js"></script>
-<%@ include  file="./layout/web-footer.jsp"%>
+<%@ include  file="./modules/web-footer.jsp"%>
