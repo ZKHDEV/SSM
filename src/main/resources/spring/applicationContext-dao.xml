@@ -17,7 +17,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--引入数据库配置文件-->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
 
     <!--c3p0连接池-->
     <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% request.setAttribute("title","删除电影"); %>
-<%@ include  file="./layout/web-header.jsp"%>
-<%@ include  file="./layout/header.jsp"%>
+<%@ include  file="./modules/web-header.jsp"%>
+<%@ include  file="./modules/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>Delete</h1>
     <h2>Are you sure you want to delete this?</h2>
@@ -9,18 +9,18 @@
     <hr>
     <dl class="dl-horizontal">
         <dt>Id</dt>
-        <dd>${movie.id}</dd>
+        <dd>${model.id}</dd>
         <dt>Title</dt>
-        <dd>${movie.title}</dd>
+        <dd>${model.title}</dd>
         <dt>Director</dt>
-        <dd>${movie.director}</dd>
+        <dd>${model.director}</dd>
         <dt>Genre</dt>
-        <dd>${movie.genre}</dd>
+        <dd>${model.genre}</dd>
         <dt>Language</dt>
-        <dd>${movie.language}</dd>
+        <dd>${model.language}</dd>
     </dl>
-    <a href="${pageContext.request.contextPath}/movie/deleteSubmit.action?id=${movie.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/movie/list.action">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/deleteSubmit?id=${movie.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
-<%@ include  file="./layout/javascript.jsp"%>
-<%@ include  file="./layout/web-footer.jsp"%>
+<%@ include  file="./modules/javascript.jsp"%>
+<%@ include  file="./modules/web-footer.jsp"%>
