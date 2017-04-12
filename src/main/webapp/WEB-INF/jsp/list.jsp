@@ -4,7 +4,7 @@
 <%@ include  file="./modules/header.jsp"%>
 <div class="container" style="margin-top: 60px;margin-bottom: 20px;">
     <h1>List</h1>
-    <a href="${pageContext.request.contextPath}/movie/create.action">Creat New</a>
+    <a href="${pageContext.request.contextPath}/movie/create">Creat New</a>
     <table class="table table-hover">
         <thead>
             <th>Id</th>
@@ -22,7 +22,7 @@
                 <td>${movie.director}</td>
                 <td>${movie.genre}</td>
                 <td>${movie.language}</td>
-                <th><a href="${pageContext.request.contextPath}/movie/details?id=${movie.id}">Details</a> | <a href="${pageContext.request.contextPath}/movie/update?id=${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/delete?id=${movie.id}">Delete</a></th>
+                <th><a href="${pageContext.request.contextPath}/movie/details/${movie.id}">Details</a> | <a href="${pageContext.request.contextPath}/movie/update/${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/delete/${movie.id}">Delete</a></th>
             </tr>
         </c:forEach>
         </tbody>

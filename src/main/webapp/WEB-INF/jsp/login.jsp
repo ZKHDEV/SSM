@@ -8,7 +8,6 @@
     <hr>
     <div class="row">
         <form id="login-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/login" method="post">
-            <input type="hidden" name="token" value="${sessionScope.token}">
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
@@ -40,12 +39,12 @@
             </div>
         </form>
     </div>
-    <a href="${pageContext.request.contextPath}/register.action">Register as a new user?</a><br>
-    <a href="${pageContext.request.contextPath}/forgot.action">Forgot your password?</a>
+    <a href="${pageContext.request.contextPath}/register">Register as a new user?</a><br>
+    <a href="${pageContext.request.contextPath}/forget">Forgot your password?</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./modules/javascript.jsp"%>
-<script src="${pageContext.request.contextPath}/js/jquery.md5.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/form-validate.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.md5.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/form-validate.js"></script>
 <%@ include  file="./modules/web-footer.jsp"%>

@@ -8,6 +8,11 @@
         <welcome-file>/login</welcome-file>
     </welcome-file-list>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/404.jsp</location>
+    </error-page>
+
     <!-- 前端控制器 -->
     <servlet>
         <servlet-name>springmvc</servlet-name>

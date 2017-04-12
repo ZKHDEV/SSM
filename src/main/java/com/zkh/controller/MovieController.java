@@ -12,8 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,65 +30,63 @@ public class MovieController extends BaseController {
     @Autowired
     private MovieService movieService;
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public String list(Model model,Integer p){
         p = p == null ? 1 : (p < 1 ? 1 : p);
         DataPage<Movie> page = movieService.selectPage(p,10,6);
         return View("list",model,page);
     }
 
-    @RequestMapping(value = "/create",method = {RequestMethod.GET})
-    public String create(HttpSession session){
-        session.setAttribute("token", UUID.randomUUID().toString());
+    @GetMapping("/create")
+    public String create(){
         return View("create");
     }
 
-    @RequestMapping(value = "/create",method = {RequestMethod.POST})
-    public String createSubmit(Model model,HttpSession session,String token, @Valid Movie movie,BindingResult bindingResult) throws CustomException {
-        validateAntiForgeryToken(session,token);
-        if(bindingResult.hasErrors()){
+    @PostMapping("/create")
+    public String createSubmit(Model model, @Valid Movie movie,BindingResult bindingResult) throws CustomException {
+        if(!bindingResult.hasErrors()){
+            movieService.insert(movie);
+            return RedirectTo("/movie/list");
+        }else{
             model.addAttribute("errors", ControllerUtil.ObjectErrorsToMap(bindingResult.getAllErrors()));
-            return View("list",model,movie);
         }
 
-        movieService.insert(movie);
-        return RedirectTo("/movie/list");
+        return View("list",model,movie);
     }
 
-    @RequestMapping("delete")
-    public String delete(Model model,Integer id) throws CustomException {
+    @GetMapping("/delete/{id}")
+    public String delete(Model model,@PathVariable("id") Integer id) throws CustomException {
         Movie movie = movieService.findByPrimaryKey(id);
         return View("delete",model,movie);
     }
 
-    @RequestMapping("deleteSubmit")
-    public String deleteSubmit(Integer id){
+    @GetMapping("/deleteSubmit/{id}")
+    public String deleteSubmit(@PathVariable("id") Integer id){
         movieService.deleteByPrimaryKey(id);
         return RedirectTo("/movie/list");
     }
 
-    @RequestMapping("details")
-    public String details(Model model,Integer id) throws CustomException {
+    @GetMapping("/details/{id}")
+    public String details(Model model,@PathVariable("id") Integer id) throws CustomException {
         Movie movie = movieService.findByPrimaryKey(id);
         return View("details",model,movie);
     }
 
-    @RequestMapping(value = "/update",method = {RequestMethod.GET})
-    public String update(Model model,HttpSession session,Integer id) throws CustomException {
+    @GetMapping("/update/{id}")
+    public String update(Model model,@PathVariable("id") Integer id) throws CustomException {
         Movie movie = movieService.findByPrimaryKey(id);
-        session.setAttribute("token", UUID.randomUUID().toString());
         return View("edit",model,movie);
     }
 
-    @RequestMapping(value = "/update",method = {RequestMethod.POST})
-    public String updateSubmit(Model model,HttpSession session,String token,@Validated Movie movie,BindingResult bindingResult) throws CustomException {
-        validateAntiForgeryToken(session,token);
-        if(bindingResult.hasErrors()){
+    @PostMapping("/update")
+    public String updateSubmit(Model model,@Validated Movie movie,BindingResult bindingResult) throws CustomException {
+        if(!bindingResult.hasErrors()){
+            movieService.updateByPrimaryKey(movie.getId(),movie);
+            return RedirectTo("/movie/list");
+        }else{
             model.addAttribute("errors", ControllerUtil.ObjectErrorsToMap(bindingResult.getAllErrors()));
-            return View("edit",model,movie);
         }
 
-        movieService.updateByPrimaryKey(movie.getId(),movie);
-        return RedirectTo("/movie/list");
+        return View("edit",model,movie);
     }
 }
