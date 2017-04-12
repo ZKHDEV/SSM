@@ -20,14 +20,9 @@
     <mvc:annotation-driven validator="validator"/>
 
     <!-- 如果当前请求为“/”时，则转发到“/helloworld/index” -->
-    <mvc:view-controller path="/" view-name="forward:/login"/>
+    <!--<mvc:view-controller path="/" view-name="forward:/login"/>-->
     <!-- 静态资源映射 -->
-    <mvc:resources mapping="/js/**" location="/js/" />
-    <mvc:resources mapping="/css/**" location="/css/" />
-    <mvc:resources mapping="/fonts/**" location="/font/" />
-    <mvc:resources mapping="/img/**" location="/img/" />
-    <mvc:resources mapping="/upload/**" location="/upload/" />
-    <mvc:resources mapping="/swf/**" location="/swf/" />
+    <mvc:resources mapping="/static/**" location="/static/" />
     <!-- 当上面要访问的静态资源不包括在上面的配置中时，则根据此配置来访问 -->
     <mvc:default-servlet-handler/>
 
@@ -73,6 +68,15 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
+
+    <!-- 拦截器 -->
+    <!--<mvc:interceptors>-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/**"/>-->
+    <!--<mvc:mapping path="/user/**"/>-->
+    <!--<bean class="LoginInterceptor"></bean>-->
+    <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

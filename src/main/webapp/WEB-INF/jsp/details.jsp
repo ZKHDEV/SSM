@@ -18,7 +18,7 @@
         <dt>Language</dt>
         <dd>${model.language}</dd>
     </dl>
-    <a href="${pageContext.request.contextPath}/movie/update?id=${movie.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/update/${model.id}">Edit</a> | <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./modules/javascript.jsp"%>

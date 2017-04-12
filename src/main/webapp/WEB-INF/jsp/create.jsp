@@ -8,7 +8,6 @@
     <hr>
     <div class="row">
         <form id="movie-create-form" class="form-horizontal col-md-6" action="${pageContext.request.contextPath}/movie/create" method="post">
-            <input type="hidden" name="token" value="${sessionScope.token}">
             <div class="form-group">
                 <label for="Title" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
@@ -44,7 +43,7 @@
             </div>
         </form>
     </div>
-    <a href="${pageContext.request.contextPath}/movie/list.action">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./modules/javascript.jsp"%>

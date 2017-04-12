@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/list.action">SSM-Demo</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/list">SSM-Demo</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -19,11 +19,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <shiro:authenticated>
-                    <li><a href="${pageContext.request.contextPath}/logout.action">Log out</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">Log out</a></li>
                 </shiro:authenticated>
                 <shiro:notAuthenticated>
-                    <li><a href="${pageContext.request.contextPath}/register.action">Register</a></li>
-                    <li><a href="${pageContext.request.contextPath}/login.action">Log in</a></li>
+                    <li><a href="${pageContext.request.contextPath}/register">Register</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login">Log in</a></li>
                 </shiro:notAuthenticated>
             </ul>
         </div>

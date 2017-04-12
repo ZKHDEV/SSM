@@ -19,7 +19,7 @@
         <dt>Language</dt>
         <dd>${model.language}</dd>
     </dl>
-    <a href="${pageContext.request.contextPath}/movie/deleteSubmit?id=${movie.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
+    <a href="${pageContext.request.contextPath}/movie/deleteSubmit/${model.id}" class="btn btn-default">Delete</a> | <a href="${pageContext.request.contextPath}/movie/list">Back to List</a>
     <hr> &copy;2017 - ZKH
 </div>
 <%@ include  file="./modules/javascript.jsp"%>
